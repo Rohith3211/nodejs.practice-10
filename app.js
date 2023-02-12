@@ -140,7 +140,7 @@ app.post("/districts/", authentication, async (request, response) => {
 
 //API 5//
 
-app.get("/districts/:districtId", async (request, response) => {
+app.get("/districts/:districtId", authentication, async (request, response) => {
   const { districtId } = request.params;
   const getDistrictDetails = `
     SELECT * 
