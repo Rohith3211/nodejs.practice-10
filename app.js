@@ -72,7 +72,8 @@ const authentication = (request, response, next) => {
   } else {
     jwt.verify(jwtToken, "SECRET_KEY", async (error, payload) => {
       if (error) {
-        response.send("Invalid user");
+        response.status(401)
+        response.send("Invalid JWT Token");
       } else {
         next();
       }
